@@ -1,7 +1,30 @@
 <?php
 
+// ! Function
+function generate_password($password_length)
+{
+    $alfa_number = "abcdefghijlmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ0123456789_?*+&%!#@";
+    $len_alfa_number = strlen($alfa_number);
+
+
+    $pass_random = '';
+    $i = 0;
+
+    while ($i < $password_length) {
+        $random_number = rand(0, $len_alfa_number - 1);
+        $pass_random .= $alfa_number[$random_number];
+        $i++;
+    }
+
+    return $pass_random;
+}
+
 // Get sent data
 $password_length = $_GET['password-length'] ?? '';
+
+if($password_length) {
+    $is_password_valid = generate_password($password_length);
+}
 
 ?>
 
@@ -22,6 +45,13 @@ $password_length = $_GET['password-length'] ?? '';
             <section class="mt-3">
                 <h1 class="text-center mt-5 text-secondary-emphasis">Strong Password Generator</h1>
                 <h2 class="text-center text-white my-4">Genera una password sicura</h2>
+
+                <div>
+                    <?php if(isset($is_password_valid)) : ?>
+                        La tua password è: <strong><?= generate_password($password_length) ?></strong>
+                    <?php endif; ?>
+                </div>
+
                 <div class="card">
                     <div class="card-body bg-light rounded">
                         <form action="" method="GET" novalidate>
@@ -32,7 +62,7 @@ $password_length = $_GET['password-length'] ?? '';
                                     </label>
                                 </div>
                                 <div class="col-6">
-                                    <input type="number" name="password-length" id="password-length" value=""
+                                    <input type="number" name="password-length" id="password-length" value="<?= $password_length ?>"
                                         class="bg-white rounded text-black">
                                 </div>
                             </div>
