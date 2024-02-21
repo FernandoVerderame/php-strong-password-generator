@@ -2,9 +2,9 @@
 
 session_start();
 
+$page_title = 'Success Page';
 $alert_class = 'alert-info';
 $alert_message = "La tua password è: <strong>{$_SESSION['password']}</strong>";
-$page_title = 'Success Page';
 
 ?>
 
@@ -23,6 +23,8 @@ $page_title = 'Success Page';
         <?php include __DIR__ . '/includes/templates/alert.php' ?>
 
         </div>
+
+        <a href="index.php">Torna indietro</a>
     </div>
 </body>
 </html>
