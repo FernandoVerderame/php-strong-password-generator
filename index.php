@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if (isset($_GET['new'])) {
+    session_destroy();
+}
+
+if (!empty($_SESSION['password'])) header('Location: success.php');
+
 $page_title = 'Home';
 
 require __DIR__ . '/includes/scripts/form_validation.php';

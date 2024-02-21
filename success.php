@@ -2,6 +2,8 @@
 
 session_start();
 
+if (!isset($_SESSION['password'])) header('Location: index.php');
+
 $page_title = 'Success Page';
 $alert_class = 'alert-info';
 $alert_message = "La tua password è: <strong>{$_SESSION['password']}</strong>";
@@ -24,7 +26,7 @@ $alert_message = "La tua password è: <strong>{$_SESSION['password']}</strong>";
 
         </div>
 
-        <a href="index.php">Torna indietro</a>
+        <a href="index.php?new=true">Genera una nuova password</a>
     </div>
 </body>
 </html>
