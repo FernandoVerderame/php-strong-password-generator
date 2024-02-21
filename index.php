@@ -1,3 +1,10 @@
+<?php
+
+// Get sent data
+$password_length = $_GET['password-length'] ?? '';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
