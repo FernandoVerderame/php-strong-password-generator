@@ -39,9 +39,10 @@ if($password_length) {
 
                 <div class="password-alert">
                     <?php if (isset($is_password_valid)) : ?>
-                        <div class="alert <?= $alert_class ?> ps-4" role="alert">
-                            <?= $alert_message ?>
-                        </div>
+
+                        <!-- Alert -->
+                        <?php include __DIR__ . '/includes/templates/alert.php' ?>
+                        
                     <?php endif; ?>
                 </div>
 

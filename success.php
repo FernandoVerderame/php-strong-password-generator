@@ -18,9 +18,10 @@ $page_title = 'Success Page';
 <body class="bg-primary-subtle">
     <div class="container">
         <div class="password-alert mt-4">
-            <div class="alert <?= $alert_class ?> ps-4" role="alert">
-                <?= $alert_message ?>
-            </div>
+
+        <!-- Alert -->
+        <?php include __DIR__ . '/includes/templates/alert.php' ?>
+
         </div>
     </div>
 </body>
