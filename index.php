@@ -48,7 +48,9 @@ if($password_length) {
 
                 <div>
                     <?php if(isset($is_password_valid)) : ?>
-                        La tua password è: <strong><?= generate_password($password_length) ?></strong>
+                        <div class="alert alert-info ps-4" role="alert">
+                            La tua password è: <strong><?= generate_password($password_length) ?></strong>
+                        </div>
                     <?php endif; ?>
                 </div>
 
