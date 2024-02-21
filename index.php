@@ -7,6 +7,17 @@ $password_length = $_GET['password-length'] ?? '';
 
 if($password_length) {
     $is_password_valid = generate_password($password_length);
+
+    if ($is_password_valid) {
+
+        session_start();
+        $_SESSION['password'] = $is_password_valid;
+
+        header('Location: ./success.php');
+    }
+
+    $alert_class = 'alert-danger';
+    $alert_message = ' DEVI inserire la lunghezza della password!';
 }
 
 ?>
@@ -29,10 +40,10 @@ if($password_length) {
                 <h1 class="text-center mt-5 text-secondary-emphasis">Strong Password Generator</h1>
                 <h2 class="text-center text-white my-4">Genera una password sicura</h2>
 
-                <div>
-                    <?php if(isset($is_password_valid)) : ?>
-                        <div class="alert alert-info ps-4" role="alert">
-                            La tua password è: <strong><?= generate_password($password_length) ?></strong>
+                <div class="password-alert">
+                    <?php if (isset($is_password_valid)) : ?>
+                        <div class="alert <?= $alert_class ?> ps-4" role="alert">
+                            <?= $alert_message ?>
                         </div>
                     <?php endif; ?>
                 </div>
