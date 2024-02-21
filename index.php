@@ -2,8 +2,6 @@
 
 $page_title = 'Home';
 
-require_once __DIR__ . '/includes/utils/functions.php'; 
-
 require __DIR__ . '/includes/scripts/form_validation.php';
 
 ?>
