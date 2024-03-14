@@ -6,7 +6,7 @@ require_once __DIR__ . '/../utils/functions.php';
 // Get sent data
 $password_length = $_GET['password-length'] ?? '';
 
-if($password_length) {
+if(!empty($password_length)) {
     $is_password_valid = generate_password($password_length);
 
     if ($is_password_valid) {
